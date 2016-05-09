@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Detect Dominant Color of an Area - JS</title>
+
+<!-- iOS Specifics //-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
+<script type="text/javascript" src="area-palette.js"></script>
+
+<!-- Javascript //--> 
+<script type="application/javascript" language="javascript">
+//<![CDATA[
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	
+	var image = document.getElementById('image')
+	
+	image.onload = function() {
+
+		var palette = areaPalette(image, {
+			w: 200,
+			h: 100,
+			x: '50%',
+			y: '70%',
+			palettesize: 5,
+			debug: false
+		});
+		
+		console.log("dominant Color = "+	palette[0].hex+" Constrast = "+palette[0].constrast);
+		
+	}
+	
+});
+
+//]]>		
+</script>
+</head>
+
+<body>
+	<img id="image" src="sample.jpg" style="width: 100%;" border="0" />   
+</body>
+</html>
